@@ -22,9 +22,10 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static final int VIEW_TYPE_OTHER = 2;
 
     private List<Chat> mChats;
+    private CharSequence current_user_id;
 
     public ChatRecyclerAdapter(List<Chat> chats) {
-        mChats = chats;
+        mChats = chats; current_user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
     public void add(Chat chat) {
@@ -68,11 +69,9 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private void configureOtherChatViewHolder(OtherChatViewHolder otherChatViewHolder, int position) {
         Chat chat = mChats.get(position);
-
-
         otherChatViewHolder.txtChatMessage.setText(chat.message);
-//        otherChatViewHolder.text_view_timestamp.setText(chat.timestamp + " ");
-//        Picasso.get().load(chat.profile_picture_url).placeholder(R.drawable.shape_of_view).into(otherChatViewHolder.imageView_icon);
+      otherChatViewHolder.timestamp.setText(chat.timestamp + "" );
+   Picasso.get().load(chat.profile_picture_url).placeholder(R.drawable.shape_of_view).into(otherChatViewHolder.imageView);
     }
 
     @Override
@@ -86,7 +85,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemViewType(int position) {
         if (TextUtils.equals(mChats.get(position).senderUid,
-                FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+               current_user_id)) {
             return VIEW_TYPE_ME;
         } else {
             return VIEW_TYPE_OTHER;
@@ -105,11 +104,14 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     private  class OtherChatViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtChatMessage;
+        private TextView txtChatMessage,timestamp,name;
+        private CircularImageView imageView;
 
         public OtherChatViewHolder(View itemView) {
             super(itemView);
-            txtChatMessage =  itemView.findViewById(R.id.text_message_body);
+            txtChatMessage =  itemView.findViewById(R.id.other_person_message_body);
+            timestamp =  itemView.findViewById(R.id.other_person_message_time);
+            imageView = itemView.findViewById(R.id.other_person_icon);
 
         }
     }
