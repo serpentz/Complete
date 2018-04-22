@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.carbon.complete.Fragments.HomeFragment;
 import com.carbon.complete.Fragments.Test;
 import com.carbon.complete.Fragments.Users.UsersFragment;
 import com.felix.bottomnavygation.BottomNav;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
         view_pager.setAdapter(new ScreenSlidePagerAdapter(getSupportFragmentManager()));
 
 
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.speech_bubble).addColorAtive(R.color.selected_color).addColorInative(R.color.background_color_light));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_home).addColorAtive(R.color.selected_color).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_nearby).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.speech_bubble).addColorAtive(R.color.blue_selected_color).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.user, R.drawable.user).isProfileItem().addProfileColorAtive(android.R.color.holo_red_dark).addProfileColorInative(android.R.color.black));
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
                 view_pager.setCurrentItem(position);
             }
         };
+        bottomNav.setTabSelectedListener(listener);
         view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
             }
         });
-        bottomNav.setTabSelectedListener(listener);
+
     }
 
 
@@ -122,13 +124,13 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
                 case 0:
 
-                    return Test.newInstance("1");
+                    return HomeFragment.newInstance();
                 case 1:
 
-                    return UsersFragment.newInstance(1);
+                    return Test.newInstance("2");
                 case 2:
 
-                    return Test.newInstance("3");
+                    return UsersFragment.newInstance(1);
                 case 3:
 
                     return Test.newInstance("4");

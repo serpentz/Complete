@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -61,7 +62,6 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Override
@@ -69,7 +69,7 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_list, container, false);
 
-        // Set the adapter
+
 
              context = view.getContext();
              init();
@@ -95,6 +95,7 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
                 swipeRefreshLayout.setOnRefreshListener(this);
         ItemClickSupport.addTo(recyclerView)
                 .setOnItemClickListener(this);
+        recyclerView.setLayoutFrozen(false);
 
 
     }
@@ -139,15 +140,33 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     @Override
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
-
-
+setNotClickable();
         ChatActivity.startActivity( getContext(), mUsersAdapter.getUser(position).uid,mUsersAdapter.getUser(position).profile_picture);
 
 
 
-    }
-    private void changeFragment(Fragment fragment) {
 
-        getFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
     }
+
+    private void setNotClickable() {
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+                Log.e(TAG, " touch event " );
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+    }
+
 }
