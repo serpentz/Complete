@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.carbon.complete.Fragments.HomeFragment;
 import com.carbon.complete.Fragments.Test;
@@ -83,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
             if(Test.checkPermissionForReadExtertalStorage(this))
                bottomNav.updateImageProfile(Constants.FULL_PATH_TO_PICTURES+"/profile_picture.jpg");
+
+        Log.e(TAG,Constants.FULL_PATH_TO_PICTURES+"/profile_picture.jpg");
 
 
 

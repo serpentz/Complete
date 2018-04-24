@@ -43,7 +43,7 @@ counter++;
 
 
         profpic=v.findViewById(R.id.fragmentdashboardPic);
-        txtusername=v.findViewById(R.id.fragmentdashboardUsername);
+        txtusername=v.findViewById(R.id.fragmentDashboardEmail);
         bgheadr=v.findViewById(R.id.fragmentdashboardImageView1);
         lst1=v.findViewById(R.id.fragmentdashboardLinearLayout1);
         lst2=v.findViewById(R.id.fragmentdashboardLinearLayout2);

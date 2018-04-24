@@ -17,7 +17,7 @@
         <ImageView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:src="@drawable/image_1"
+            android:src="@color/colorPrimary"
             android:scaleType="centerCrop"
             android:id="@+id/fragmentdashboardImageView1"/>
 
@@ -42,11 +42,11 @@
             android:textSize="40sp"
             android:textColor="#FFFFFF"
             android:layout_marginTop="100dp"
-            android:text="Virra Adelia"
+            android:text="NAME"
             android:textStyle="bold"
             android:typeface="serif"
-            android:id="@+id/fragmentdashboardUsername"
-            android:alpha="0"/>
+            android:id="@+id/fragmentDashboardEmail"
+            />
 
     </RelativeLayout>
 
