@@ -2,17 +2,15 @@ package com.carbon.complete.Firebase.Register;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.carbon.complete.ADTs.User;
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class RegisterInteractor implements RegisterContract.Interactor {

@@ -27,35 +27,6 @@
             android:background="#0F0F0F"
             android:alpha="0.4"/>
 
-        <ImageView
-            android:layout_height="30dp"
-            android:layout_width="30dp"
-            android:tint="#ffffff"
-            android:src="@drawable/ic_menu"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/fragmentdashboardMenu2"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10dp"/>
-
-        <ImageView
-            android:layout_height="30dp"
-            android:layout_width="30dp"
-            android:tint="#ffffff"
-            android:src="@drawable/ic_search"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:id="@+id/fragmentdashboardMenu1"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10dp"/>
-
-        <devs.mulham.horizontalcalendar.HorizontalCalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#66000000"
-            app:textColorSelected="#ff0000"
-            android:layout_alignParentBottom="true"/>
-
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_height="140dp"
             android:layout_width="140dp"
@@ -92,7 +63,7 @@
             android:orientation="horizontal"
             android:layout_marginBottom="1dp"
             android:id="@+id/fragmentdashboardLinearLayout1"
-            android:alpha="0">
+          >
 
             <ImageView
                 android:src="@drawable/list_0000"
@@ -110,7 +81,7 @@
             android:orientation="horizontal"
             android:layout_marginBottom="1dp"
             android:id="@+id/fragmentdashboardLinearLayout2"
-            android:alpha="0">
+        >
 
             <ImageView
                 android:src="@drawable/list_0001"
@@ -128,7 +99,7 @@
             android:orientation="horizontal"
             android:layout_marginBottom="1dp"
             android:id="@+id/fragmentdashboardLinearLayout3"
-            android:alpha="0">
+            >
 
             <ImageView
                 android:src="@drawable/list_0002"
@@ -146,7 +117,7 @@
             android:orientation="horizontal"
             android:layout_marginBottom="1dp"
             android:id="@+id/fragmentdashboardLinearLayout4"
-            android:alpha="0">
+            >
 
             <ImageView
                 android:src="@drawable/list_0000"

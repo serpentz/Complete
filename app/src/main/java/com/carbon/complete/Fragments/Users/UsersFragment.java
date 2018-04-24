@@ -141,7 +141,7 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
 setNotClickable();
-        ChatActivity.startActivity( getContext(), mUsersAdapter.getUser(position).uid,mUsersAdapter.getUser(position).profile_picture);
+        ChatActivity.startActivity( getContext(), mUsersAdapter.getUser(position).uid,mUsersAdapter.getUser(position).profile_picture,mUsersAdapter.getUser(position).email);
 
 
 

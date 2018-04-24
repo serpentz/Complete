@@ -1,33 +1,20 @@
 package com.carbon.complete.Firebase.SaveProfilePicture;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.util.Base64;
-import android.util.Log;
-import android.widget.Toast;
 
 
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
-
-
 
 
 /**
