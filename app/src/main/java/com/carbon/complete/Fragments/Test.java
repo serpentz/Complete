@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -180,6 +181,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
            String path_to_save_to = Constants.PATH_TO_PICTURES ;
            Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
            SavePhoto(bitmap,path_to_save_to);
+           Log.e(TAG, Environment.DIRECTORY_PICTURES);
            MainActivity.bottomNav.updateImageProfile(picturePath);
 
         }else{
@@ -215,9 +217,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
             e.printStackTrace();
         }
         SavePhotoToFirebaseDabase( bitmap);
-
-
-
+        
     }
     public void SavePhotoToFirebaseDabase(Bitmap bitmap){
 
