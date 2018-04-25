@@ -27,9 +27,9 @@ import java.util.List;
 
 public class UsersFragment extends Fragment implements GetAllUsersContract.View, SwipeRefreshLayout.OnRefreshListener,ItemClickSupport.OnItemClickListener{
 
-    // TODO: Customize parameter argument names
+
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
+
     private int mColumnCount = 1;
     private String TAG = UsersFragment.class.getSimpleName();
 
@@ -47,7 +47,7 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public UsersFragment() {
     }
 
-    // TODO: Customize parameter initialization
+
     @SuppressWarnings("unused")
     public static UsersFragment newInstance(int columnCount) {
         UsersFragment fragment = new UsersFragment();
