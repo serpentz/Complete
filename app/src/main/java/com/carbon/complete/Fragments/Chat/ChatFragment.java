@@ -1,8 +1,5 @@
 package com.carbon.complete.Fragments.Chat;
 
-/**
- * Created by Abyic on 1/3/2018.
- */
 
 
 import android.app.ProgressDialog;
@@ -23,7 +20,7 @@ import android.widget.Toast;
 
 
 import com.carbon.complete.ADTs.Chat;
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.Firebase.Chat.ChatContract;
 import com.carbon.complete.Firebase.Chat.ChatPresenter;
 import com.carbon.complete.R;
@@ -101,7 +98,7 @@ public class ChatFragment extends Fragment implements ChatContract.View, TextVie
     private void sendMessage() {
         String message = mETxtMessage.getText().toString();
         String receiverUid = getArguments().getString(Constants.DatabaseTerms.RECEIVER_UID);
-        String  profile_picture_url = getArguments().getString(Constants.DatabaseTerms.RECEIVER_UID);
+        String  profile_picture_url = getArguments().getString(Constants.DatabaseTerms.PROFILE_PICTURE);
         String senderUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         long timestamp = System.currentTimeMillis();
 

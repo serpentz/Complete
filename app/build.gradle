@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.android.support:cardview-v7:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
+    implementation 'me.relex:circleindicator:1.2.2@aar'
+
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'me.tankery.lib:permission-requester:1.0.0'
