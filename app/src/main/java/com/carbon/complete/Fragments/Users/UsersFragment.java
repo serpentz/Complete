@@ -28,10 +28,9 @@ import java.util.List;
 
 public class UsersFragment extends Fragment implements GetAllUsersContract.View, SwipeRefreshLayout.OnRefreshListener,ItemClickSupport.OnItemClickListener{
 
-    // TODO: Customize parameter argument names
+
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+
     private String TAG = UsersFragment.class.getSimpleName();
 
     private RecyclerView recyclerView;
@@ -48,7 +47,7 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public UsersFragment() {
     }
 
-    // TODO: Customize parameter initialization
+
     @SuppressWarnings("unused")
     public static UsersFragment newInstance(int columnCount) {
         UsersFragment fragment = new UsersFragment();
@@ -68,8 +67,6 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_list, container, false);
-
-
 
              context = view.getContext();
              init();
@@ -141,7 +138,10 @@ public class UsersFragment extends Fragment implements GetAllUsersContract.View,
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
 setNotClickable();
-        ChatActivity.startActivity( getContext(), mUsersAdapter.getUser(position).uid,mUsersAdapter.getUser(position).profile_picture,mUsersAdapter.getUser(position).email);
+        ChatActivity.startActivity( getContext(),
+                mUsersAdapter.getUser(position).uid,
+                mUsersAdapter.getUser(position).email,
+                mUsersAdapter.getUser(position).profile_picture);
 
 
 

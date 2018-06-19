@@ -2,6 +2,7 @@ package com.carbon.complete.Fragments.Chat;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_ME = 1;
     private static final int VIEW_TYPE_OTHER = 2;
+    private static final int VIEW_TYPE_OTHER_TYPE_2 = 3;
+    private static final String TAG = ChatRecyclerAdapter.class.getSimpleName();
 
     private List<Chat> mChats;
     private CharSequence current_user_id;
@@ -46,15 +52,21 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 View viewChatOther = layoutInflater.inflate(R.layout.chat_box_other_person, parent, false);
                 viewHolder = new OtherChatViewHolder(viewChatOther);
                 break;
+            case VIEW_TYPE_OTHER_TYPE_2:
+                View viewChatOtherType2 = layoutInflater.inflate(R.layout.chat_box_other_person, parent, false);
+                viewHolder = new OtherChatViewHolder(viewChatOtherType2);
+                break;
         }
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
         if (TextUtils.equals(mChats.get(position).senderUid,
                 current_user_id)) {
             configureMyChatViewHolder((MyChatViewHolder) holder, position);
+
         } else {
             configureOtherChatViewHolder((OtherChatViewHolder) holder, position);
         }
@@ -68,8 +80,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private void configureOtherChatViewHolder(OtherChatViewHolder otherChatViewHolder, int position) {
         Chat chat = mChats.get(position);
+        Calendar c=Calendar.getInstance();
+        c.setTimeInMillis(chat.timestamp);
         otherChatViewHolder.txtChatMessage.setText(chat.message);
-        otherChatViewHolder.timestamp.setText(chat.timestamp + "");
+
+        otherChatViewHolder.timestamp.setText(c.get(Calendar.HOUR));
         otherChatViewHolder.name.setText(chat.senderUid);
         Picasso.get().load(chat.profile_picture_url).placeholder(R.drawable.shape_of_view).into(otherChatViewHolder.imageView);
     }
@@ -94,7 +109,6 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private class MyChatViewHolder extends RecyclerView.ViewHolder {
         private TextView txtChatMessage;
-
 
         public MyChatViewHolder(View itemView) {
             super(itemView);

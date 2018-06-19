@@ -15,11 +15,12 @@ public class ChatActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     public static void startActivity(Context context,
-                                     String receiverUid,String email,
+                                     String receiverUid,
+                                     String name ,
                                      String profilePicture) {
         Intent intent = new Intent(context, ChatActivity.class);
         intent.putExtra(Constants.DatabaseTerms.RECEIVER_UID, receiverUid);
-        intent.putExtra(Constants.DatabaseTerms.EMAIL, email);
+        intent.putExtra(Constants.DatabaseTerms.EMAIL, name);
         intent.putExtra(Constants.DatabaseTerms.PROFILE_PICTURE, profilePicture);
         context.startActivity(intent);
     }
@@ -41,7 +42,7 @@ public class ChatActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         // set toolbar title
-        mToolbar.setTitle(getIntent().getExtras().getString(Constants.DatabaseTerms.RECEIVER_UID));
+        mToolbar.setTitle(getIntent().getExtras().getString(Constants.DatabaseTerms.EMAIL));
 
         // set the register screen fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

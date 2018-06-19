@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.carbon.complete.Fragments.Test">
+    android:background="@android:color/transparent"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textview_test_fragment"
         android:gravity="center"
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="205dp"
-        android:text="Tribute"
+        android:text="Button"
         android:layout_gravity="center"/>
 
 </FrameLayout>

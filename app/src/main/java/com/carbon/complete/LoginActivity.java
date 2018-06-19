@@ -82,7 +82,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onLoginSucces(String message) {
-        MainActivity.startActivity(this);
+     //   MainActivity.startActivity(this);
+        Intent intent = new Intent(this, ProfileSetupActivity.class);
+        startActivity(intent);
 
     }
 

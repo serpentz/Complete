@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -50,7 +51,7 @@ import static android.app.Activity.RESULT_OK;
  * create an instance of this fragment.
  */
 public class Test extends Fragment implements View.OnClickListener, SavePhotoInterface.View, LogoutContract.View {
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     static final String ARG_PARAM1 = "param1";
     private final int REQUEST_READ_AND_WRITE = 2000;
@@ -61,7 +62,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
     SavePhotoPresenter mpresenter;
 
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -81,7 +82,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
      *
      * @return A new instance of fragment Test.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static Test newInstance(String param1) {
         Test fragment = new Test();
         Bundle args = new Bundle();
@@ -180,6 +181,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
            String path_to_save_to = Constants.PATH_TO_PICTURES ;
            Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
            SavePhoto(bitmap,path_to_save_to);
+           Log.e(TAG, Environment.DIRECTORY_PICTURES);
            MainActivity.bottomNav.updateImageProfile(picturePath);
 
         }else{
@@ -216,13 +218,8 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
         }
         SavePhotoToFirebaseDabase( bitmap);
 
-
-
     }
     public void SavePhotoToFirebaseDabase(Bitmap bitmap){
-
-
-
 
         mpresenter = new SavePhotoPresenter(this);
         mpresenter.addPhoto(FirebaseAuth.getInstance().getCurrentUser(),bitmap);
@@ -264,7 +261,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
     }
     @Override
@@ -273,8 +270,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+
         }
     }
 
