@@ -58,7 +58,6 @@
                 android:hint="Password"
                 android:drawablePadding="9dp"
                 android:background="@drawable/rectangle_button"
-
                 android:padding="10dp"
                 android:textColor="@color/primary_text"
                 android:textColorHint="@color/primary_text"

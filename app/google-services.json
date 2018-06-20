@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:315915022598:android:a9c0e8c958c32ece",
         "android_client_info": {
-          "package_name": "com.carbon.complete"
+          "package_name": "com.carbon.Complete"
         }
       },
       "oauth_client": [
@@ -18,9 +18,61 @@
           "client_id": "315915022598-ge4bd6h42rgla152njcqodandbijsmcv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.carbon.complete",
+            "package_name": "com.carbon.Complete",
             "certificate_hash": "5e63db7d2a821d18274ad4783c977b08c65438e9"
           }
+        },
+        {
+          "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCan6LZG37rMfVmF34snJ-wLQAzvIEk0g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315915022598:android:b3019c40bc8ec09f",
+        "android_client_info": {
+          "package_name": "com.carbon.complete"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315915022598-tng45fudaut4s88t4h91kllspu8np4kk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.carbon.complete",
+            "certificate_hash": "c2e351ec75279694f2cf8b6c7db892f9cb9dc583"
+          }
+        },
+        {
+          "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",

@@ -48,10 +48,8 @@ public class ChatInteractor implements ChatContract.Interactor {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(room_type_1)) {
-
                     databaseReference.child(Constants.DatabaseTerms.CHAT_ROOMS).child(room_type_1).child(String.valueOf(chat.timestamp)).setValue(chat);
                 } else if (dataSnapshot.hasChild(room_type_2)) {
-
                     databaseReference.child(Constants.DatabaseTerms.CHAT_ROOMS).child(room_type_2).child(String.valueOf(chat.timestamp)).setValue(chat);
                 } else {
 
@@ -70,8 +68,6 @@ public class ChatInteractor implements ChatContract.Interactor {
         });
 
     }
-
-
 
     @Override
     public void getMessageFromFirebaseUser(String senderUid, String receiverUid) {

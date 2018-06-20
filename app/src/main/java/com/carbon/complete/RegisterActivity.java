@@ -74,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void GoToLogin() {
 
-
         FirebaseAuth.getInstance().signOut();
         LoginActivity.startActivity(this);
     }
