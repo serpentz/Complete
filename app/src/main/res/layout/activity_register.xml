@@ -66,26 +66,6 @@
 
         <!-- Login Button -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_button"
-            android:orientation="vertical">
-
-            <custom.RobotoEditText
-                android:id="@+id/editText_password_again"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:drawableLeft="@drawable/ic_user_lock_icon"
-                android:layout_marginBottom="10dp"
-                android:hint="Re-enter Password"
-                android:drawablePadding="9dp"
-                android:inputType="text"
-                android:background="@drawable/rectangle_button"
-                android:padding="10dp"
-                android:textColor="@color/primary_text"
-                android:textColorHint="@color/primary_text"/>
-        </LinearLayout>
 
 
         <Button
@@ -98,17 +78,7 @@
             android:text="@string/registerPage_RegisterText"
             android:textAlignment="center"
             android:textColor="@android:color/white" />
-        <Button
-            android:id="@+id/btnFacebookLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:background="@drawable/rounded_button"
 
-            android:shadowColor="@android:color/white"
-            android:text="Facebook"
-
-            android:textColor="@android:color/white" />
 
 
 

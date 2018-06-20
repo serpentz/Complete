@@ -1,6 +1,5 @@
 package com.carbon.complete.Fragments.Users;
 
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import com.carbon.complete.ADTs.User;
 
 
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.R;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
