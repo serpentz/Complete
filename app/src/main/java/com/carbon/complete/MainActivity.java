@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -50,13 +51,10 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
     private void init() {
 
         bottomNav = findViewById(R.id.bottomNav);
-        view_pager = findViewById(R.id.view_pager);
-        view_pager.setCurrentItem(2);
-        view_pager.setEnabled(false);
 
 
-        bottomNav.selectTab(2);
-        view_pager.setAdapter(new MyScreenAdapter(getSupportFragmentManager()));
+
+
 
         bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_groups).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_credit_card).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
@@ -68,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
         setProfilePicture();
 
         SetListeners();
+        bottomNav.selectTab(2);
 
 
     }
@@ -79,14 +78,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
             bottomNav.updateImageProfile(Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
 
         Log.e(TAG, Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
-        view_pager.clearAnimation();
-        view_pager.setAnimation(null);
-        view_pager.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
 
-            }
-        });
 
 
     }
@@ -94,13 +86,41 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
     private void SetListeners() {
 
+
         BottomNav.OnTabSelectedListener listener = new BottomNav.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
 
+                Fragment fragment = null;
+                switch (position) {
+
+                    case 0:
+
+                        fragment= HomeFragment.newInstance(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                        break;
+                    case 1:
+
+                        fragment= CreditCardFragment.newInstance();
+                        break;
+                    case 2:
+
+                        fragment= UsersFragment.newInstance(1);
+                        break;
+                    case 3:
+
+                        fragment= Test.newInstance("4");
+                        break;
+
+                }
 
 
-                    view_pager.setCurrentItem(position);
+
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.mainActivity_container, fragment);
+                transaction.commit();
+
+
 
 
 
@@ -109,30 +129,13 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
             @Override
             public void onTabLongSelected(int position) {
 
-                view_pager.setCurrentItem(position);
+
 
 
             }
         };
         bottomNav.setTabSelectedListener(listener);
-        view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                bottomNav.selectTab(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-
-            }
-        });
 
     }
 

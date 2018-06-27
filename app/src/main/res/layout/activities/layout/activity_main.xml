@@ -12,15 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <custom.StiffViewPager
-            android:id="@+id/view_pager"
+        <FrameLayout
+            android:id="@+id/mainActivity_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/bottom_bar_height">
 
 
 
-        </custom.StiffViewPager>
+        </FrameLayout>
 
         <com.felix.bottomnavygation.BottomNav
             android:id="@+id/bottomNav"
