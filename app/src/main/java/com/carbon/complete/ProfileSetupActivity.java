@@ -15,7 +15,6 @@ import android.widget.Button;
 
 import com.carbon.complete.Utils.ViewPagerAdapter;
 
-
 import me.relex.circleindicator.CircleIndicator;
 
 public class ProfileSetupActivity extends CoreActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
@@ -24,9 +23,6 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
     private View next;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
-
-
-
 
     private int[] color;
 
@@ -39,10 +35,6 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup);
-
-
-
-
 
         color = new int[]{
                 getContext().getResources().getColor(R.color.background_color_light),
@@ -118,7 +110,6 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
             case R.id.next:
                 if (viewPager.getCurrentItem() < 2) {
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                    
                 }
                 else
                     startHomeActivity();

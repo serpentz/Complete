@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
         bottomNav.selectTab(2);
         view_pager.setAdapter(new MyScreenAdapter(getSupportFragmentManager()));
 
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_home).addColorAtive(R.color.selected_color).addColorInative(R.color.background_color_light));
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_nearby).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.speech_bubble).addColorAtive(R.color.blue_selected_color).addColorInative(R.color.background_color_light));
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.user, R.drawable.user).isProfileItem().addProfileColorAtive(android.R.color.holo_red_dark).addProfileColorInative(android.R.color.black));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_groups).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_credit_card).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_chat).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_user, R.drawable.ic_user).isProfileItem().addColorInative(R.color.background_color_light).addColorAtive(R.color.primaryGreen));
 
         bottomNav.build();
 
@@ -99,11 +99,9 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
             public void onTabSelected(int position) {
 
 
-                if (position <= 2) {
-                    view_pager.setCurrentItem(2);
-                } else {
+
                     view_pager.setCurrentItem(position);
-                }
+
 
 
             }
@@ -166,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
                     return HomeFragment.newInstance(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                 case 1:
 
-                    return Test.newInstance("2");
+                    return CreditCardFragment.newInstance();
                 case 2:
 
                     return UsersFragment.newInstance(1);

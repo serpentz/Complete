@@ -24,7 +24,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".ProfileSetupActivity"></activity>
+        <activity android:name=".ProfileSetupActivity"/>
     </application>
 
 </manifest>

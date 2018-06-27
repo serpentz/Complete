@@ -16,6 +16,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+
+                            'src/main/res/layout/activities',
+                            'src/main/res/layout/content',
+                            'src/main/res/layout/fragments',
+                            'src/main/res/layout/list-items',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
 
 dependencies {
@@ -44,7 +58,7 @@ dependencies {
 
     implementation 'me.tankery.lib:permission-requester:1.0.0'
     implementation 'com.github.florent37:shapeofview:1.0.6'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
 
 }
 apply plugin: 'com.google.gms.google-services'
-
