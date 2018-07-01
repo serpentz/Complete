@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
             bottomNav.updateImageProfile(Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
 
         Log.e(TAG, Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
+     //   Log.e(TAG, Constants.PATH_TO_INTERNAL_MEMORY+Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
+
 
 
 

@@ -91,16 +91,7 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
     @Override
     public void onPageSelected(int position) {
 
-        switch(position){
-            case 0: viewPager.setEnabled(false);
-                break;
-            case 1: viewPager.setEnabled(false);
-                break;
-            case 2: viewPager.setEnabled(false);
-                break;
 
-
-        }
 
     }
     @Override

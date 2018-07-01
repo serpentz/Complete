@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_profile_background_white"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <com.github.florent37.shapeofview.shapes.ArcView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:background="@drawable/shape_of_view"
+        android:visibility="visible"
+        app:shape_arc_cropDirection="outside"
+        app:shape_arc_height="40dp"
+        app:shape_arc_position="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:color/white" />
+
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:id="@+id/circleView_user_profile"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                app:shape_circle_borderWidth="2dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_2" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@id/circleView_user_profile"
+                android:layout_alignEnd="@id/circleView_user_profile"
+                android:layout_margin="1dp"
+                android:background="@android:color/white"
+                app:shape_circle_borderColor="@android:color/white"
+                app:shape_circle_borderWidth="4dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/primaryGreen"
+                    android:padding="15dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_edit" />
+
+            </com.github.florent37.shapeofview.shapes.CircleView>
+
+
+            <custom.RobotoTextView
+                android:id="@+id/user_profile_textView_User_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/circleView_user_profile"
+                android:text="@string/user_name"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </com.github.florent37.shapeofview.shapes.ArcView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40">
+
+        <Button
+            android:id="@+id/create_new_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button_gradient_green"
+            android:shadowColor="#000"
+            android:text="@string/create_new_group"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

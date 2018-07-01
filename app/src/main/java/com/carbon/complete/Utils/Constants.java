@@ -12,8 +12,9 @@ import android.os.Environment;
 
 public class Constants {
 
-    public static String PATH_TO_PICTURES = "DatingApp/media/Dating App Images";
-    public static String FULL_PATH_TO_PICTURES = Environment.getExternalStorageDirectory()+"/"+ PATH_TO_PICTURES;
+    public static String PATH_TO_PICTURES = "/DatingApp/media/Dating App Images";
+    public static String FULL_PATH_TO_PICTURES = Environment.getExternalStorageDirectory().getPath()+ PATH_TO_PICTURES;
+    public static String PATH_TO_INTERNAL_MEMORY = Environment.getRootDirectory().getPath();
 
     public static class DatabaseTerms {
 

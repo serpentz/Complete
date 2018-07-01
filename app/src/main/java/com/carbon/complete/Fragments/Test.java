@@ -36,6 +36,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 
 import me.tankery.permission.PermissionRequestActivity;
 
@@ -62,7 +64,6 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
     SavePhotoPresenter mpresenter;
 
 
-
     private String mParam1;
     private String mParam2;
 
@@ -79,7 +80,6 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     *
      * @return A new instance of fragment Test.
      */
 
@@ -108,7 +108,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_test, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         init(view);
         return view;
 
@@ -116,41 +116,49 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
 
     private void init(View view) {
 
-        TextView textview_test = view.findViewById(R.id.textview_test_fragment);
-        textview_test.setText(mParam1);
-        btn_do = view.findViewById(R.id.btn_do);
+        btn_do = view.findViewById(R.id.create_new_group);
         btn_do.setOnClickListener(this);
+        btn_do.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                logout();
+                return false;
+            }
+        });
 
     }
+
+    private void logout() {
+        LogoutPresenter logoutPresenter = new LogoutPresenter(this);
+        logoutPresenter.logout();
+    }
+
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_do: SetProfilePicture();break;
+        switch (view.getId()) {
+            case R.id.create_new_group:
+                SetProfilePicture();
+                break;
 
         }
     }
 
     private void SetProfilePicture() {
 
-        if(Integer.parseInt(mParam1) == 4){
 
-            LogoutPresenter logoutPresenter = new LogoutPresenter(this);
-            logoutPresenter.logout();
+        CheckPermissions();
 
-        }else {
-
-            CheckPermissions();
-        }
     }
 
     private void CheckPermissions() {
 
-        String[] PERMISSIONS = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
+        String[] PERMISSIONS = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
         String message = "We need permission to access your photos for to insure a  better experience.";
-        PermissionRequestActivity.start(getActivity(), REQUEST_READ_AND_WRITE,PERMISSIONS, message, message);
+        PermissionRequestActivity.start(getActivity(), REQUEST_READ_AND_WRITE, PERMISSIONS, message, message);
 
-        if(checkPermissionForReadExtertalStorage(getContext()))
-        CallGalleryIntent();
+        if (checkPermissionForReadExtertalStorage(getContext()))
+            CallGalleryIntent();
     }
 
     private void CallGalleryIntent() {
@@ -163,10 +171,10 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
 
     }
 
-    private void SetPicture(int resultCode ,Intent intent ) {
-        if(resultCode == RESULT_OK){
+    private void SetPicture(int resultCode, Intent intent) {
+        if (resultCode == RESULT_OK) {
             Uri selectedImage = intent.getData();
-            String[] filePathColumn = { MediaStore.Images.ImageColumns.DATA};
+            String[] filePathColumn = {MediaStore.Images.ImageColumns.DATA};
 
             Cursor cursor = getActivity().getContentResolver().query(selectedImage,
                     filePathColumn, null, null, null);
@@ -176,63 +184,78 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
+            String path_to_save_to = Constants.FULL_PATH_TO_PICTURES;
+            Log.e(TAG, "Original Picture dir  -- " + picturePath);
+            Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
+            Log.e(TAG, "Picture dir to save to -- " + path_to_save_to);
+            SavePhoto(bitmap, path_to_save_to);
 
+            MainActivity.bottomNav.updateImageProfile(picturePath);
 
-           String path_to_save_to = Constants.PATH_TO_PICTURES ;
-           Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
-           SavePhoto(bitmap,path_to_save_to);
-           Log.e(TAG, Environment.DIRECTORY_PICTURES);
-           MainActivity.bottomNav.updateImageProfile(picturePath);
-
-        }else{
-            Log.e(TAG + " line :180", "setPicture method result code " + resultCode + " error" );
+        } else {
+            Log.e(TAG + " line :180", "setPicture method result code " + resultCode + " error");
         }
 
     }
 
     private void SavePhoto(Bitmap bitmap, String picturePath) {
         OutputStream fOut = null;
-        String basePath ="/storage/emulated/0/";
 
-
-        File dir = new File(basePath+picturePath);
+        File dir = new File(picturePath);
         if (!dir.isDirectory()) {
             dir.mkdirs();
         }
 
         File file = new File(dir, "profile_picture.jpg");
+        if (file.exists()) {
+            try {
+                PrintWriter writer = new PrintWriter(file);
+                writer.print("");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
         try {
             fOut = new FileOutputStream(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
+        Log.e(TAG, file.getAbsolutePath());
+
 
         // saving the Bitmap to a file compressed as a JPEG with 85% compression rate
         bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
         try {
-            fOut.flush();fOut.close(); // Not really required
+            fOut.flush();
+            fOut.close(); // Not really required
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        SavePhotoToFirebaseDabase( bitmap);
+        SavePhotoToFirebaseDabase(bitmap);
 
     }
-    public void SavePhotoToFirebaseDabase(Bitmap bitmap){
+
+    public void SavePhotoToFirebaseDabase(Bitmap bitmap) {
 
         mpresenter = new SavePhotoPresenter(this);
-        mpresenter.addPhoto(FirebaseAuth.getInstance().getCurrentUser(),bitmap);
+        mpresenter.addPhoto(FirebaseAuth.getInstance().getCurrentUser(), bitmap);
 
 
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        switch(requestCode){
+        switch (requestCode) {
 
-            case REQUEST_READ_AND_WRITE: break;
-            case GALLERY_REQUEST:SetPicture(resultCode,data); break;
+            case REQUEST_READ_AND_WRITE:
+                break;
+            case GALLERY_REQUEST:
+                SetPicture(resultCode, data);
+                break;
         }
 
     }
@@ -264,6 +287,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
 
         void onFragmentInteraction(Uri uri);
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
