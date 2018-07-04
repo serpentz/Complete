@@ -9,13 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import com.carbon.complete.Fragments.HomeFragment;
-import com.carbon.complete.Fragments.Test;
+import com.carbon.complete.Fragments.UserProfileFragment;
 import com.carbon.complete.Fragments.Users.UsersFragment;
 import com.carbon.complete.Utils.Constants;
 import com.felix.bottomnavygation.BottomNav;
@@ -24,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import custom.StiffViewPager;
 
-public class MainActivity extends AppCompatActivity implements Test.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements UserProfileFragment.OnFragmentInteractionListener {
 
     public static final int GALLERY_REQUEST = 2000;
     public static final int IMAGE_REQUEST = 2500;
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
     private void setProfilePicture() {
 
 
-        if (Test.checkPermissionForReadExtertalStorage(this))
+        if (UserProfileFragment.checkPermissionForReadExtertalStorage(this))
             bottomNav.updateImageProfile(Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
 
         Log.e(TAG, Constants.FULL_PATH_TO_PICTURES + "/profile_picture.jpg");
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
                         break;
                     case 3:
 
-                        fragment= Test.newInstance("4");
+                        fragment= UserProfileFragment.newInstance("4");
                         break;
 
                 }
@@ -175,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
                     return UsersFragment.newInstance(1);
                 case 3:
 
-                    return Test.newInstance("4");
+                    return UserProfileFragment.newInstance("4");
 
             }
 

@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carbon.complete.Utils.Constants;
@@ -37,7 +35,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.nio.file.Files;
 
 import me.tankery.permission.PermissionRequestActivity;
 
@@ -47,19 +44,19 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Test.OnFragmentInteractionListener} interface
+ * {@link UserProfileFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Test#newInstance} factory method to
+ * Use the {@link UserProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Test extends Fragment implements View.OnClickListener, SavePhotoInterface.View, LogoutContract.View {
+public class UserProfileFragment extends Fragment implements View.OnClickListener, SavePhotoInterface.View, LogoutContract.View {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     static final String ARG_PARAM1 = "param1";
     private final int REQUEST_READ_AND_WRITE = 2000;
     private final int GALLERY_REQUEST = 2001;
 
-    private final String TAG = "Test Fragment";
+    private final String TAG = "UserProfileFragment Fragment";
 
     SavePhotoPresenter mpresenter;
 
@@ -71,7 +68,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
 
     private OnFragmentInteractionListener mListener;
 
-    public Test() {
+    public UserProfileFragment() {
         // Required empty public constructor
     }
 
@@ -80,11 +77,11 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @return A new instance of fragment Test.
+     * @return A new instance of fragment UserProfileFragment.
      */
 
-    public static Test newInstance(String param1) {
-        Test fragment = new Test();
+    public static UserProfileFragment newInstance(String param1) {
+        UserProfileFragment fragment = new UserProfileFragment();
         Bundle args = new Bundle();
 
         args.putString(ARG_PARAM1, param1);
