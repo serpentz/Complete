@@ -146,42 +146,6 @@ public class MainActivity extends AppCompatActivity implements UserProfileFragme
 
     }
 
-    private class MyScreenAdapter extends FragmentStatePagerAdapter {
-
-
-        public MyScreenAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-
-                case 0:
-
-                    return HomeFragment.newInstance(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                case 1:
-
-                    return CreditCardFragment.newInstance();
-                case 2:
-
-                    return UsersFragment.newInstance(1);
-                case 3:
-
-                    return UserProfileFragment.newInstance("4");
-
-            }
-
-            return null;
-        }
-
-
-    }
 }
 
 
