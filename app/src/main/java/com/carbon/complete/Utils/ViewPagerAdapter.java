@@ -9,13 +9,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.carbon.complete.Fragments.ProfileSetup.WelcomePageOne;
-import com.carbon.complete.Fragments.ProfileSetup.WelcomePageThree;
 import com.carbon.complete.Fragments.ProfileSetup.WelcomePageTwo;
-import com.carbon.complete.Fragments.UserProfileFragment;
 
-/**
- * Created by ramraj on 10/3/17.
- */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -38,7 +33,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return WelcomePageTwo.newInstance();
             case 2:
-                return WelcomePageThree.newInstance();
+                return WelcomePageTwo.newInstance();
+
 
         }
         return null;

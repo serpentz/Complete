@@ -1,138 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-res"
+    xmlns:app1="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app1="http://schemas.android.com/apk/res-auto">
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    android:weightSum="100">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-res"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#EEEEEE"
-        android:orientation="vertical">
 
-        <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:padding="10dp">
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_height="match_parent"
 
+            android:padding="10dp"
+            app1:cardBackgroundColor="@color/background_color_light"
+            app1:cardCornerRadius="20dp">
 
-            <android.support.v7.widget.CardView
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app1:cardBackgroundColor="@color/background_color_light"
-                app1:cardCornerRadius="20dp"
-                android:padding="10dp">
+                android:layout_height="match_parent"
+                android:weightSum="100">
 
 
+                <com.liulishuo.magicprogresswidget.MagicProgressBar
+                    android:id="@+id/demo_1_mpb"
+                    android:layout_width="0dp"
+                    android:layout_height="19dp"
+                    android:layout_margin="20dp"
 
-                <RelativeLayout
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+
+                    app1:layout_constraintBottom_toBottomOf="parent"
+                    app1:layout_constraintEnd_toEndOf="parent"
+                    app1:layout_constraintHeight_percent=".1"
+                    app1:layout_constraintStart_toStartOf="parent"
+                    app1:mpb_background_color="#1AFFFFFF"
+                    app1:mpb_fill_color="#FF1CECBE"
+                    app1:mpb_percent=".8" />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:padding="10dp"
+            app1:cardBackgroundColor="@color/background_color_light"
+            app1:cardCornerRadius="20dp">
+
+            <android.support.constraint.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100">
+
+                <com.db.chart.view.LineChartView
+                    android:id="@+id/chart"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:padding="10dp">
+                    android:layout_height="match_parent"
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/fragmentdashboardPic"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/shape_of_view" />
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    app1:chart_axis="false"
+                    app1:chart_axisBorderSpacing="15dp"
+                    app1:chart_labelColor="#6a84c3" />
 
-                <TextView
-                    android:id="@+id/fragmentDashboardEmail"
-                    android:layout_below="@id/fragmentdashboardPic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
-                    android:gravity="center"
-                    android:text="NAME"
-                    android:textColor="#FFFFFF"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:typeface="serif"
-                    />
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
 
-        </RelativeLayout>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:layout_margin="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="50"
+
+            android:weightSum="100">
 
             <LinearLayout
-                android:id="@+id/fragmentdashboardLinearLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:background="#FFFFFF"
-                android:gravity="left"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:padding="5dp">
 
-                <ImageView
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/list_0000" />
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
 
+                    app1:shape_roundRect_bottomLeftRadius="20dp"
+                    app1:shape_roundRect_bottomRightRadius="20dp"
+                    app1:shape_roundRect_topLeftRadius="20dp"
+                    app1:shape_roundRect_topRightRadius="20dp"
+
+
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/gradient_dashboard_1" />
+
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/fragmentdashboardLinearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:background="#FFFFFF"
-                android:gravity="left"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:padding="5dp">
 
-                <ImageView
-                    android:layout_width="290dp"
-                    android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/list_0001" />
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
 
-            </LinearLayout>
+                    app1:shape_roundRect_bottomLeftRadius="20dp"
+                    app1:shape_roundRect_bottomRightRadius="20dp"
+                    app1:shape_roundRect_topLeftRadius="20dp"
+                    app1:shape_roundRect_topRightRadius="20dp"
 
-            <LinearLayout
-                android:id="@+id/fragmentdashboardLinearLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:background="#FFFFFF"
-                android:gravity="left"
-                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="240dp"
-                    android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/list_0002" />
+                    >
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/gradient_dashboard_1" />
 
-            <LinearLayout
-                android:id="@+id/fragmentdashboardLinearLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:background="#FFFFFF"
-                android:gravity="left"
-                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="250dp"
-                    android:layout_height="80dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/list_0000" />
-
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
             </LinearLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:padding="5dp">
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+
+                    app1:shape_roundRect_bottomLeftRadius="20dp"
+                    app1:shape_roundRect_bottomRightRadius="20dp"
+                    app1:shape_roundRect_topLeftRadius="20dp"
+                    app1:shape_roundRect_topRightRadius="20dp"
+
+
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/gradient_dashboard_1" />
+
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:padding="5dp">
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+
+                    app1:shape_roundRect_bottomLeftRadius="20dp"
+                    app1:shape_roundRect_bottomRightRadius="20dp"
+                    app1:shape_roundRect_topLeftRadius="20dp"
+                    app1:shape_roundRect_topRightRadius="20dp"
+
+
+                    >
+
+                    <ImageView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/gradient_dashboard_2" />
+
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
-</ScrollView>
+
+
+</LinearLayout>

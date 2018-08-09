@@ -7,12 +7,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.carbon.complete.Fragments.HomeFragment;
+import com.carbon.complete.Fragments.Home.HomeFragment;
 import com.carbon.complete.Fragments.UserProfileFragment;
 import com.carbon.complete.Fragments.Users.UsersFragment;
 import com.carbon.complete.Utils.Constants;
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements UserProfileFragme
         setProfilePicture();
 
         SetListeners();
-        bottomNav.selectTab(2);
+        bottomNav.selectTab(0);
 
 
     }

@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.carbon.complete.ProfileSetupActivity;
 import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.Firebase.Logout.LogoutContract;
 import com.carbon.complete.Firebase.Logout.LogoutPresenter;
@@ -56,7 +57,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private final int REQUEST_READ_AND_WRITE = 2000;
     private final int GALLERY_REQUEST = 2001;
 
-    private final String TAG = "UserProfileFragment Fragment";
+    private final String TAG = "UserProfileFragment";
 
     SavePhotoPresenter mpresenter;
 
@@ -119,7 +120,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             @Override
             public boolean onLongClick(View view) {
 
-                logout();
+                ProfileSetupActivity.startActivity(getContext());
                 return false;
             }
         });
@@ -190,7 +191,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             MainActivity.bottomNav.updateImageProfile(picturePath);
 
         } else {
-            Log.e(TAG + " line :180", "setPicture method result code " + resultCode + " error");
+            Log.e(TAG , "setPicture method result code " + resultCode + " error");
         }
 
     }

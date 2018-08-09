@@ -4,30 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:weightSum="100"
     tools:context="com.carbon.complete.MainActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <FrameLayout
             android:id="@+id/mainActivity_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/bottom_bar_height">
-
+            android:layout_height="0dp"
+          android:layout_weight="94">
 
 
         </FrameLayout>
 
         <com.felix.bottomnavygation.BottomNav
             android:id="@+id/bottomNav"
-            android:background="@android:color/white"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_bar_height"/>
+            android:layout_height="0dp"
+            android:layout_weight="6"
 
-    </RelativeLayout>
+            android:background="@android:color/white" />
+
 </LinearLayout>

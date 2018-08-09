@@ -1,7 +1,8 @@
 package com.carbon.complete;
 
-import android.animation.ArgbEvaluator;
 
+
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -16,20 +17,24 @@ import android.widget.Button;
 import com.carbon.complete.Utils.ViewPagerAdapter;
 
 import me.relex.circleindicator.CircleIndicator;
+import top.defaults.view.TextButton;
 
-public class ProfileSetupActivity extends CoreActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class ProfileSetupActivity extends CoreActivity implements View.OnClickListener {
 
     private CircleIndicator circleIndicator;
-    private View next;
+    private TextButton sign_in, sign_up;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
 
     private int[] color;
 
 
-    private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+    public static void startActivity(Context context) {
 
+        Intent intent = new Intent(context, ProfileSetupActivity.class);
+        context.startActivity(intent);
 
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +42,9 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile_setup);
 
         color = new int[]{
-                getContext().getResources().getColor(R.color.background_color_light),
-                getContext().getResources().getColor(R.color.blue_selected_color),
-                getContext().getResources().getColor(R.color.colorPrimaryDark)
+                getContext().getResources().getColor(R.color.user_profile_background_white),
+                getContext().getResources().getColor(R.color.user_profile_background_white),
+
         };
 
         //set ViewPager adapter
@@ -49,69 +54,41 @@ public class ProfileSetupActivity extends CoreActivity implements View.OnClickLi
         //set viewPager Indicator
         circleIndicator.setViewPager(viewPager);
 
+
+
     }
 
     @Override
     protected void bindViews() {
         circleIndicator = findViewById(R.id.circulator_indicator);
-
-        next = findViewById(R.id.next);
-
+        sign_in = findViewById(R.id.welcome_screen_sign_in);
+        sign_up = findViewById(R.id.welcome_screen_sign_up);
         viewPager = findViewById(R.id.intro_silder_pager);
     }
 
     @Override
     protected void setListeners() {
 
-        next.setOnClickListener(this);
-        viewPager.addOnPageChangeListener(this);
-    }
-
-
-
-    private void startHomeActivity() {
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-
-    /*viewPager Page change listener starting*/
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        if (position < (pagerAdapter.getCount() - 1) && position < (color.length - 1)) {
-            viewPager.setBackgroundColor((Integer) argbEvaluator.evaluate(positionOffset, color[position], color[position + 1]));
-        } else {
-            viewPager.setBackgroundColor(color[color.length - 1]);
-        }
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-
+        sign_in.setOnClickListener(this);
+        sign_up.setOnClickListener(this);
 
     }
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.next:
-                if (viewPager.getCurrentItem() < 2) {
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                }
-                else
-                    startHomeActivity();
+            case R.id.welcome_screen_sign_in:
+                LoginActivity.startActivity(this);
                 break;
+            case R.id.welcome_screen_sign_up:
+                RegisterActivity.startActivity(this);
+                break;
+
+
 
         }
     }
-    @Override
-    public void onPageScrollStateChanged(int state) {
 
-    }
 
     /*viewPager Page change listener ending*/
 

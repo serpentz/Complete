@@ -1,12 +1,15 @@
 package com.carbon.complete.Fragments.ProfileSetup;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.carbon.complete.R;
+
 
 /**
  * Created by archlinux on 5/1/18.
@@ -33,6 +36,13 @@ public class WelcomePageOne extends Fragment {
 
     private void init(View v) {
 
+
+
+
+
+        ((TextView)v.findViewById(R.id.title_welcome_screen)).setTypeface(Typeface.createFromAsset(
+                getActivity().getAssets(),
+                "fonts/AbrilFatfaceRegular.ttf"));
 
 
 

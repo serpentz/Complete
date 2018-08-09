@@ -5,7 +5,7 @@
         android:startColor="@color/primaryGreen"
 
         android:endColor="@color/colorPrimary"
-        android:angle="270"/>
+        android:angle="45"/>
 
 
 

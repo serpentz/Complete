@@ -11,9 +11,7 @@
     <color name="primaryGreen">#00ca9d</color>
     <color name="green500">#4CAF50</color>
     <color name="green_800">#056f00</color>
-    <color name="blue_selected_color">#3498db</color>
     <color name="primary_text">#DE000000</color>
 
-    <color name="selected_color">#e74c3c</color>
     <color name="background_color_light">#95a5a6</color>
 </resources>
