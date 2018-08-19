@@ -3,6 +3,7 @@ package com.carbon.complete;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,11 +11,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
+import com.carbon.complete.Fragments.HomeFragment;
 import com.carbon.complete.Fragments.Test;
 import com.carbon.complete.Fragments.Users.UsersFragment;
+import com.carbon.complete.Utils.Constants;
 import com.felix.bottomnavygation.BottomNav;
 import com.felix.bottomnavygation.ItemNav;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import custom.StiffViewPager;
 
@@ -55,18 +65,32 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
         view_pager.setAdapter(new ScreenSlidePagerAdapter(getSupportFragmentManager()));
 
 
-        bottomNav.addItemNav(new ItemNav(this, R.drawable.speech_bubble).addColorAtive(R.color.selected_color).addColorInative(R.color.background_color_light));
+        bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_home).addColorAtive(R.color.selected_color).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.ic_nav_nearby).addColorAtive(R.color.primaryGreen).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.speech_bubble).addColorAtive(R.color.blue_selected_color).addColorInative(R.color.background_color_light));
         bottomNav.addItemNav(new ItemNav(this, R.drawable.user, R.drawable.user).isProfileItem().addProfileColorAtive(android.R.color.holo_red_dark).addProfileColorInative(android.R.color.black));
 
         bottomNav.build();
 
+        setProfilePicture();
+
         SetListeners();
 
 
     }
 
+    private void setProfilePicture() {
+
+
+            if(Test.checkPermissionForReadExtertalStorage(this))
+               bottomNav.updateImageProfile(Constants.FULL_PATH_TO_PICTURES+"/profile_picture.jpg");
+
+        Log.e(TAG,Constants.FULL_PATH_TO_PICTURES+"/profile_picture.jpg");
+
+
+
+
+    }
 
 
     private void SetListeners() {
@@ -84,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
                 view_pager.setCurrentItem(position);
             }
         };
+        bottomNav.setTabSelectedListener(listener);
         view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -100,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
             }
         });
-        bottomNav.setTabSelectedListener(listener);
+
     }
 
 
@@ -122,13 +147,13 @@ public class MainActivity extends AppCompatActivity implements Test.OnFragmentIn
 
                 case 0:
 
-                    return Test.newInstance("1");
+                    return HomeFragment.newInstance("new");
                 case 1:
 
-                    return UsersFragment.newInstance(1);
+                    return Test.newInstance("2");
                 case 2:
 
-                    return Test.newInstance("3");
+                    return UsersFragment.newInstance(1);
                 case 3:
 
                     return Test.newInstance("4");

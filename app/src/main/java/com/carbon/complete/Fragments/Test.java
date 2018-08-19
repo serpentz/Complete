@@ -21,7 +21,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.Firebase.Logout.LogoutContract;
 import com.carbon.complete.Firebase.Logout.LogoutPresenter;
 import com.carbon.complete.Firebase.SaveProfilePicture.SavePhotoInterface;
@@ -149,7 +149,7 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
         String message = "We need permission to access your photos for to insure a  better experience.";
         PermissionRequestActivity.start(getActivity(), REQUEST_READ_AND_WRITE,PERMISSIONS, message, message);
 
-        if(checkPermissionForReadExtertalStorage())
+        if(checkPermissionForReadExtertalStorage(getContext()))
         CallGalleryIntent();
     }
 
@@ -281,9 +281,9 @@ public class Test extends Fragment implements View.OnClickListener, SavePhotoInt
         mListener = null;
     }
 
-    public boolean checkPermissionForReadExtertalStorage() {
+    public static boolean checkPermissionForReadExtertalStorage(Context ctz) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int result = getContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
+            int result = ctz.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
             return result == PackageManager.PERMISSION_GRANTED;
         }
         return false;

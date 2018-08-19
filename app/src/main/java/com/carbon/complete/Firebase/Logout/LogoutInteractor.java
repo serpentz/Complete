@@ -2,7 +2,7 @@ package com.carbon.complete.Firebase.Logout;
 
 import android.support.annotation.NonNull;
 
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.Firebase.Login.LoginInteractor;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

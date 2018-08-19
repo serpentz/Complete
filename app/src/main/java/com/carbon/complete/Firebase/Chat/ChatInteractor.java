@@ -1,12 +1,9 @@
 package com.carbon.complete.Firebase.Chat;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.carbon.complete.ADTs.Chat;
-import com.carbon.complete.ADTs.User;
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

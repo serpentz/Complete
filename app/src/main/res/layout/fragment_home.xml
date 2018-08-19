@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-res"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEE">
+
+    <RelativeLayout
+        android:layout_height="500dp"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:src="@color/colorPrimary"
+            android:scaleType="centerCrop"
+            android:id="@+id/fragmentdashboardImageView1"/>
+
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="#0F0F0F"
+            android:alpha="0.4"/>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_height="140dp"
+            android:layout_width="140dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shape_of_view"
+            android:layout_centerInParent="true"
+            android:id="@+id/fragmentdashboardPic"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="100dp"
+            android:text="NAME"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:id="@+id/fragmentDashboardEmail"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/fragmentdashboardLinearLayout1"
+          >
+
+            <ImageView
+                android:src="@drawable/list_0000"
+                android:layout_height="80dp"
+                android:layout_width="250dp"
+                android:scaleType="fitXY"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/fragmentdashboardLinearLayout2"
+        >
+
+            <ImageView
+                android:src="@drawable/list_0001"
+                android:layout_height="80dp"
+                android:layout_width="290dp"
+                android:scaleType="fitXY"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/fragmentdashboardLinearLayout3"
+            >
+
+            <ImageView
+                android:src="@drawable/list_0002"
+                android:layout_height="80dp"
+                android:layout_width="240dp"
+                android:scaleType="fitXY"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp"
+            android:id="@+id/fragmentdashboardLinearLayout4"
+            >
+
+            <ImageView
+                android:src="@drawable/list_0000"
+                android:layout_height="80dp"
+                android:layout_width="250dp"
+                android:scaleType="fitXY"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
