@@ -15,6 +15,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -79,11 +80,11 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private void configureOtherChatViewHolder(OtherChatViewHolder otherChatViewHolder, int position) {
         Chat chat = mChats.get(position);
-        Date d = new Date(chat.timestamp);
-        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy");
-        String dateText = df2.format(d);
+        Calendar c=Calendar.getInstance();
+        c.setTimeInMillis(chat.timestamp);
         otherChatViewHolder.txtChatMessage.setText(chat.message);
-        otherChatViewHolder.timestamp.setText(dateText);
+
+        otherChatViewHolder.timestamp.setText(c.get(Calendar.HOUR));
         otherChatViewHolder.name.setText(chat.senderUid);
         Picasso.get().load(chat.profile_picture_url).placeholder(R.drawable.shape_of_view).into(otherChatViewHolder.imageView);
     }

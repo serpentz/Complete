@@ -3,7 +3,7 @@ package com.carbon.complete.Firebase.Login;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 
-import com.carbon.complete.Constants;
+import com.carbon.complete.Utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -38,6 +38,7 @@ public class LoginInteractor implements LoginInterface.Interactor {
 
                                 mOnLoginListener.onSuccess(task.getResult().toString());
                                 updateFirebaseToken(uid, token);
+
 
 
                             } else {

@@ -7,9 +7,7 @@
     <string name="registerPage_RegisterText">Register</string>
 
 
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="loading">loading</string>
-    <string name="please_wait">Please Wait</string>
+    <string name="Hello">Hello</string>
 
 </resources>
