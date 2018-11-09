@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
@@ -39,10 +40,10 @@
                 android:id="@+id/circleView_user_profile"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -53,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/image_2" />
+                    android:src="@drawable/city_gif" />
 
             </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -62,10 +63,10 @@
                 android:id="@+id/user_profile_textView_User_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="29dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="29dp"
                 android:text="@string/user_name"
                 android:textAlignment="center"
                 android:textColor="@color/cardview_dark_background"
@@ -74,6 +75,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/circleView_user_profile" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+
+                android:layout_marginStart="320dp"
+
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/circleView_user_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".10"
+                app:srcCompat="@drawable/ic_settings" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -100,5 +120,7 @@
 
 
     </LinearLayout>
+
+
 
 </LinearLayout>

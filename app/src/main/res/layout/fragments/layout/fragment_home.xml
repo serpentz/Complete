@@ -2,237 +2,217 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-res"
     xmlns:app1="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     android:orientation="vertical"
-    android:weightSum="100">
+    >
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="40"
-        android:padding="10dp">
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="40"-->
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <!--android:padding="10dp">-->
 
-            android:padding="10dp"
-            app1:cardBackgroundColor="@color/background_color_light"
-            app1:cardCornerRadius="20dp">
+        <!--<android.support.v7.widget.CardView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="100">
+            <!--android:padding="10dp"-->
+            <!--app:cardBackgroundColor="@color/background_color_light"-->
+            <!--app:cardCornerRadius="20dp">-->
 
-
-                <com.liulishuo.magicprogresswidget.MagicProgressBar
-                    android:id="@+id/demo_1_mpb"
-                    android:layout_width="0dp"
-                    android:layout_height="19dp"
-                    android:layout_margin="20dp"
-
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-
-                    app1:layout_constraintBottom_toBottomOf="parent"
-                    app1:layout_constraintEnd_toEndOf="parent"
-                    app1:layout_constraintHeight_percent=".1"
-                    app1:layout_constraintStart_toStartOf="parent"
-                    app1:mpb_background_color="#1AFFFFFF"
-                    app1:mpb_fill_color="#FF1CECBE"
-                    app1:mpb_percent=".8" />
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/linearLayout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:weightSum="100">-->
 
 
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
+                <!--<com.liulishuo.magicprogresswidget.MagicProgressBar-->
+                    <!--android:id="@+id/demo_1_mpb"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="19dp"-->
+                    <!--android:layout_margin="20dp"-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="20"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+                    <!--android:layout_marginStart="20dp"-->
+                    <!--android:layout_marginEnd="20dp"-->
+                    <!--android:layout_marginBottom="8dp"-->
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:padding="10dp"
-            app1:cardBackgroundColor="@color/background_color_light"
-            app1:cardCornerRadius="20dp">
-
-            <android.support.constraint.ConstraintLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="100">
-
-                <com.db.chart.view.LineChartView
-                    android:id="@+id/chart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    app1:chart_axis="false"
-                    app1:chart_axisBorderSpacing="15dp"
-                    app1:chart_labelColor="#6a84c3" />
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintHeight_percent=".1"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:mpb_background_color="#1AFFFFFF"-->
+                    <!--app:mpb_fill_color="#FF1CECBE"-->
+                    <!--app:mpb_percent=".8" />-->
 
 
-            </android.support.constraint.ConstraintLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
+            <!--</android.support.constraint.ConstraintLayout>-->
+        <!--</android.support.v7.widget.CardView>-->
+    <!--</android.support.constraint.ConstraintLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="40"
-        android:orientation="vertical"
-        android:weightSum="100"
-        android:layout_margin="5dp">
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="20"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="50"
+        <!--<android.support.v7.widget.CardView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
 
-            android:weightSum="100">
+            <!--android:padding="10dp"-->
+            <!--app:cardBackgroundColor="@color/background_color_light"-->
+            <!--app:cardCornerRadius="20dp">-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:padding="5dp">
+            <!--<android.support.constraint.ConstraintLayout-->
 
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:weightSum="100">-->
 
-                    app1:shape_roundRect_bottomLeftRadius="20dp"
-                    app1:shape_roundRect_bottomRightRadius="20dp"
-                    app1:shape_roundRect_topLeftRadius="20dp"
-                    app1:shape_roundRect_topRightRadius="20dp"
+                <!--<com.db.chart.view.LineChartView-->
+                    <!--android:id="@+id/chart"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
 
-
-                    >
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/gradient_dashboard_1" />
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="15dp"-->
+                    <!--android:layout_marginBottom="15dp"-->
+                    <!--app:chart_axis="false"-->
+                    <!--app:chart_axisBorderSpacing="15dp"-->
+                    <!--app:chart_labelColor="#6a84c3" />-->
 
 
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-            </LinearLayout>
+            <!--</android.support.constraint.ConstraintLayout>-->
+        <!--</android.support.v7.widget.CardView>-->
+    <!--</android.support.constraint.ConstraintLayout>-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:padding="5dp">
-
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-
-                    app1:shape_roundRect_bottomLeftRadius="20dp"
-                    app1:shape_roundRect_bottomRightRadius="20dp"
-                    app1:shape_roundRect_topLeftRadius="20dp"
-                    app1:shape_roundRect_topRightRadius="20dp"
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:layout_weight="40"-->
+        <!--&gt;-->
 
 
-                    >
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/gradient_dashboard_1" />
+            <!--android:padding="5dp"-->
+            <!--android:visibility="visible">-->
 
+            <!--<com.github.florent37.shapeofview.shapes.RoundRectView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:shape_roundRect_bottomLeftRadius="20dp"-->
+                <!--app:shape_roundRect_bottomRightRadius="20dp"-->
+                <!--app:shape_roundRect_topLeftRadius="20dp"-->
+                <!--app:shape_roundRect_topRightRadius="20dp">-->
 
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="50"
-            android:weightSum="100">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:padding="5dp">
-
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-
-                    app1:shape_roundRect_bottomLeftRadius="20dp"
-                    app1:shape_roundRect_bottomRightRadius="20dp"
-                    app1:shape_roundRect_topLeftRadius="20dp"
-                    app1:shape_roundRect_topRightRadius="20dp"
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/gradient_dashboard_1" />-->
 
 
-                    >
+            <!--</com.github.florent37.shapeofview.shapes.RoundRectView>-->
+        <!--</LinearLayout>-->
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/gradient_dashboard_1" />
+        <!--<android.support.constraint.ConstraintLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="25"-->
+            <!--android:padding="5dp">-->
 
+            <!--<com.github.florent37.shapeofview.shapes.RoundRectView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="50"-->
 
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:padding="5dp">
-
-                <com.github.florent37.shapeofview.shapes.RoundRectView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-
-                    app1:shape_roundRect_bottomLeftRadius="20dp"
-                    app1:shape_roundRect_bottomRightRadius="20dp"
-                    app1:shape_roundRect_topLeftRadius="20dp"
-                    app1:shape_roundRect_topRightRadius="20dp"
+                <!--app:shape_roundRect_bottomLeftRadius="20dp"-->
+                <!--app:shape_roundRect_bottomRightRadius="20dp"-->
+                <!--app:shape_roundRect_topLeftRadius="20dp"-->
+                <!--app:shape_roundRect_topRightRadius="20dp"-->
 
 
-                    >
+                <!--&gt;-->
 
-                    <ImageView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/gradient_dashboard_2" />
-
-
-                </com.github.florent37.shapeofview.shapes.RoundRectView>
-            </LinearLayout>
-
-        </LinearLayout>
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/gradient_dashboard_1" />-->
 
 
-    </LinearLayout>
+            <!--</com.github.florent37.shapeofview.shapes.RoundRectView>-->
+        <!--</android.support.constraint.ConstraintLayout>-->
+
+
+        <!--<android.support.constraint.ConstraintLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="25"-->
+            <!--android:padding="5dp"-->
+           <!--&gt;-->
+
+            <!--<com.github.florent37.shapeofview.shapes.RoundRectView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="50"-->
+
+                <!--app:shape_roundRect_bottomLeftRadius="20dp"-->
+                <!--app:shape_roundRect_bottomRightRadius="20dp"-->
+                <!--app:shape_roundRect_topLeftRadius="20dp"-->
+                <!--app:shape_roundRect_topRightRadius="20dp"-->
+
+
+                <!--&gt;-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/gradient_dashboard_1" />-->
+
+
+            <!--</com.github.florent37.shapeofview.shapes.RoundRectView>-->
+        <!--</android.support.constraint.ConstraintLayout>-->
+
+        <!--<android.support.constraint.ConstraintLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="25"-->
+            <!--android:padding="5dp">-->
+
+            <!--<com.github.florent37.shapeofview.shapes.RoundRectView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="50"-->
+
+                <!--app:shape_roundRect_bottomLeftRadius="20dp"-->
+                <!--app:shape_roundRect_bottomRightRadius="20dp"-->
+                <!--app:shape_roundRect_topLeftRadius="20dp"-->
+                <!--app:shape_roundRect_topRightRadius="20dp"-->
+
+
+                <!--&gt;-->
+
+                <!--<ImageView-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:src="@drawable/gradient_dashboard_2" />-->
+
+
+            <!--</com.github.florent37.shapeofview.shapes.RoundRectView>-->
+        <!--</android.support.constraint.ConstraintLayout>-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->
 
 
 </LinearLayout>
