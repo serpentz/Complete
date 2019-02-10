@@ -41,7 +41,7 @@ public class LineCardOne extends CardController {
         super(card);
 
         mContext = context;
-//        mChart = (LineChartView) card.findViewById(R.id.chart);
+        mChart = (LineChartView) card.findViewById(R.id.chart);
     }
 
 
