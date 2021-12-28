@@ -25,10 +25,6 @@
         {
           "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
           "client_type": 3
-        },
-        {
-          "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -37,20 +33,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     },
@@ -73,10 +62,6 @@
         {
           "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
           "client_type": 3
-        },
-        {
-          "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -85,20 +70,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "315915022598-8vd970usk9q3pbsjhs6escfm479omopi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

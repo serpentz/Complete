@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.carbon.complete.ProfileSetupActivity;
@@ -66,6 +67,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private String mParam2;
 
     private Button btn_do;
+    private ImageView image_settings;
 
     private OnFragmentInteractionListener mListener;
 
@@ -115,7 +117,9 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private void init(View view) {
 
         btn_do = view.findViewById(R.id.create_new_group);
+        image_settings = view.findViewById(R.id.settings);
         btn_do.setOnClickListener(this);
+        image_settings.setOnClickListener(this);
         btn_do.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -138,9 +142,15 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             case R.id.create_new_group:
                 SetProfilePicture();
                 break;
+                case R.id.settings:
+                    Log.e(TAG, "logging out");
+                    logout();
+                    break;
+
+            }
 
         }
-    }
+
 
     private void SetProfilePicture() {
 
@@ -183,9 +193,9 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             cursor.close();
 
             String path_to_save_to = Constants.FULL_PATH_TO_PICTURES;
-            Log.e(TAG, "Original Picture dir  -- " + picturePath);
+//            Log.e(TAG, "Original Picture dir  -- " + picturePath);
             Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
-            Log.e(TAG, "Picture dir to save to -- " + path_to_save_to);
+//            Log.e(TAG, "Picture dir to save to -- " + path_to_save_to);
             SavePhoto(bitmap, path_to_save_to);
 
             MainActivity.bottomNav.updateImageProfile(picturePath);
@@ -225,7 +235,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
 
 
         // saving the Bitmap to a file compressed as a JPEG with 85% compression rate
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
         try {
             fOut.flush();
             fOut.close(); // Not really required
