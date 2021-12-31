@@ -24,34 +24,23 @@ import com.carbon.complete.ProfileSetupActivity;
 import com.carbon.complete.Utils.Constants;
 import com.carbon.complete.Firebase.Logout.LogoutContract;
 import com.carbon.complete.Firebase.Logout.LogoutPresenter;
-import com.carbon.complete.Firebase.SaveProfilePicture.SavePhotoInterface;
-import com.carbon.complete.Firebase.SaveProfilePicture.SavePhotoPresenter;
+import com.carbon.complete.Firebase.SaveProfilePicture.PhotoInterface;
+import com.carbon.complete.Firebase.SaveProfilePicture.PhotoPresenter;
 import com.carbon.complete.LoginActivity;
 import com.carbon.complete.MainActivity;
 import com.carbon.complete.R;
+import com.carbon.complete.Utils.FilePath;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.util.Objects;
 
 import me.tankery.permission.PermissionRequestActivity;
 
 import static android.app.Activity.RESULT_OK;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link UserProfileFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link UserProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class UserProfileFragment extends Fragment implements View.OnClickListener, SavePhotoInterface.View, LogoutContract.View {
+
+public class UserProfileFragment extends Fragment implements View.OnClickListener, PhotoInterface.View, LogoutContract.View {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     static final String ARG_PARAM1 = "param1";
@@ -60,7 +49,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
 
     private final String TAG = "UserProfileFragment";
 
-    SavePhotoPresenter mpresenter;
+    PhotoPresenter mpresenter;
 
 
     private String mParam1;
@@ -182,9 +171,13 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private void SetPicture(int resultCode, Intent intent) {
         if (resultCode == RESULT_OK) {
             Uri selectedImage = intent.getData();
+            String pathhh = FilePath.getPath(getContext(),selectedImage);
+
+            Log.e(TAG, pathhh + " __________________________________________________");
             String[] filePathColumn = {MediaStore.Images.ImageColumns.DATA};
 
-            Cursor cursor = getActivity().getContentResolver().query(selectedImage,
+            assert selectedImage != null;
+            Cursor cursor = Objects.requireNonNull(getActivity()).getContentResolver().query(selectedImage,
                     filePathColumn, null, null, null);
             cursor.moveToFirst();
 
@@ -193,10 +186,10 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             cursor.close();
 
             String path_to_save_to = Constants.FULL_PATH_TO_PICTURES;
-//            Log.e(TAG, "Original Picture dir  -- " + picturePath);
+            Log.e(TAG, "Original Picture dir  -- " + picturePath);
             Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
-//            Log.e(TAG, "Picture dir to save to -- " + path_to_save_to);
-            SavePhoto(bitmap, path_to_save_to);
+            Log.e(TAG, "Picture dir to save to -- " + path_to_save_to);
+            SavePhoto(bitmap);
 
             MainActivity.bottomNav.updateImageProfile(picturePath);
 
@@ -206,50 +199,15 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
 
     }
 
-    private void SavePhoto(Bitmap bitmap, String picturePath) {
-        OutputStream fOut = null;
+    private void SavePhoto(Bitmap bitmap) {
 
-        File dir = new File(picturePath);
-        if (!dir.isDirectory()) {
-            dir.mkdirs();
-        }
-
-        File file = new File(dir, "profile_picture.jpg");
-        if (file.exists()) {
-            try {
-                PrintWriter writer = new PrintWriter(file);
-                writer.print("");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        try {
-            fOut = new FileOutputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Log.e(TAG, file.getAbsolutePath());
-
-
-        // saving the Bitmap to a file compressed as a JPEG with 85% compression rate
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
-        try {
-            fOut.flush();
-            fOut.close(); // Not really required
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         SavePhotoToFirebaseDabase(bitmap);
 
     }
 
     public void SavePhotoToFirebaseDabase(Bitmap bitmap) {
 
-        mpresenter = new SavePhotoPresenter(this);
+        mpresenter = new PhotoPresenter(this);
         mpresenter.addPhoto(FirebaseAuth.getInstance().getCurrentUser(), bitmap);
 
 

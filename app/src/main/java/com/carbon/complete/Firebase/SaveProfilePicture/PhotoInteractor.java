@@ -21,15 +21,20 @@ import java.io.ByteArrayOutputStream;
  * Created by archlinux on 3/7/18.
  */
 
-public class SavePhotoInteractor implements SavePhotoInterface.Interactor {
+public class PhotoInteractor implements PhotoInterface.Interactor {
 
-     private String TAG  = SavePhotoInteractor.class.getSimpleName();
+     private String TAG  = PhotoInteractor.class.getSimpleName();
 
-    private SavePhotoInterface.OnProfilePictureAddedDatabaseListener mOnUserDatabaseListener;
+    private PhotoInterface.OnProfilePictureAddedDatabaseListener mOnUserDatabaseListener;
     private FirebaseDatabase database;
 
-    public SavePhotoInteractor(SavePhotoInterface.OnProfilePictureAddedDatabaseListener onUserDatabaseListener) {
+    public PhotoInteractor(PhotoInterface.OnProfilePictureAddedDatabaseListener onUserDatabaseListener) {
         this.mOnUserDatabaseListener = onUserDatabaseListener;
+    }
+
+    @Override
+    public void getProfilePictureFromDatabase(FirebaseUser user) {
+
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.carbon.complete.Firebase.SaveProfilePicture;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -9,17 +8,23 @@ import com.google.firebase.auth.FirebaseUser;
  * Created by archlinux on 3/7/18.
  */
 
-public class SavePhotoPresenter implements SavePhotoInterface.Presenter, SavePhotoInterface.OnProfilePictureAddedDatabaseListener{
-    private SavePhotoInterface.View mRegisterView;
-    private SavePhotoInteractor mSavePhotoInteractor;
+public class PhotoPresenter implements PhotoInterface.Presenter, PhotoInterface.OnProfilePictureAddedDatabaseListener, PhotoInterface.OnProfilePictureRequestListener{
+    private PhotoInterface.View mRegisterView;
+    private PhotoInteractor mPhotoInteractor;
 
-    public SavePhotoPresenter(SavePhotoInterface.View registerView) {
+    public PhotoPresenter(PhotoInterface.View registerView) {
         this.mRegisterView = registerView;
-        mSavePhotoInteractor = new SavePhotoInteractor(this);
+        mPhotoInteractor = new PhotoInteractor(this);
     }
+
+    @Override
+    public void getPhoto(FirebaseUser user) {
+
+    }
+
     @Override
     public void addPhoto(FirebaseUser firebaseUser, Bitmap bitmap) {
-        mSavePhotoInteractor.addProfilePictureToDatabase(firebaseUser,bitmap);
+        mPhotoInteractor.addProfilePictureToDatabase(firebaseUser,bitmap);
     }
 
     @Override

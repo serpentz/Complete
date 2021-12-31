@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
  * Created by archlinux on 3/7/18.
  */
 
-public interface SavePhotoInterface {
+public interface PhotoInterface {
 
     interface View {
         void onAddPhotoSuccess(String message);
@@ -18,14 +18,22 @@ public interface SavePhotoInterface {
     }
 
     interface Presenter {
+        void getPhoto(FirebaseUser user);
         void addPhoto(FirebaseUser firebaseUser, Bitmap bitmap);
     }
 
     interface Interactor {
+        void getProfilePictureFromDatabase(FirebaseUser user);
         void addProfilePictureToDatabase(FirebaseUser firebaseUser, Bitmap bitmap);
     }
 
     interface OnProfilePictureAddedDatabaseListener {
+        void onSuccess(String message);
+
+        void onFailure(String message);
+    }
+
+    interface OnProfilePictureRequestListener {
         void onSuccess(String message);
 
         void onFailure(String message);
